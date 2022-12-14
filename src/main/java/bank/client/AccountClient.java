@@ -20,6 +20,7 @@ public class AccountClient extends JFrame {
         if (!accounts.isEmpty()) {
             for (Account account : accounts) {
                 panel.add(new JLabel(account.getCurrency().toString()));
+                // todo buraya for ile dönüp adamın ismi ve soyismi yazılacak ve bakiyesi
             }
         } else {
             panel.add(new JLabel("Hesabınız bulunmamaktadır."));

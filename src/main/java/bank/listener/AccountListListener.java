@@ -2,6 +2,7 @@ package bank.listener;
 
 import bank.client.AccountClient;
 import bank.model.Account;
+import bank.model.Currency;
 import bank.model.FilePaths;
 import bank.util.JsonReader;
 
@@ -21,6 +22,10 @@ public class AccountListListener implements ActionListener {
         JFrame frame = new AccountClient(accounts
                 .stream()
                 .map(json -> Account.builder()
+                        .id((Long) json.get("id"))
+                        .currency(Currency.valueOf((String) json.get("currency")))
+                        .customerId((Long) json.get("customerId"))
+                        .balance(Double.valueOf((Integer) json.get("balance")))
                         .build())
                 .collect(Collectors.toList())
         );
