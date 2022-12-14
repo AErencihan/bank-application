@@ -21,7 +21,7 @@ public final class SignInService {
                 .orElseThrow(() -> new UserNotFoundException("Kullanıcı adı veya şifre hatalı"));
     }
 
-    public List<SignUpRequest> getAllUsers(File file) {
+    public static List<SignUpRequest> getAllUsers(File file) {
         if (file.length() == 0) {
             return List.of();
         }

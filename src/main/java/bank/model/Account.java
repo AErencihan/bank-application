@@ -12,5 +12,4 @@ public class Account {
     private Long customerId;
     private Double balance;
     private Currency currency;
-    private Long userId;
 }

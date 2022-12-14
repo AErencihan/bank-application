@@ -12,9 +12,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AccountListener implements ActionListener {
+public class AccountListListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
+
         final List<LinkedHashMap>  accounts = JsonReader.read(FilePaths.ACCOUNT.getPath(), List.class);
 
         JFrame frame = new AccountClient(accounts

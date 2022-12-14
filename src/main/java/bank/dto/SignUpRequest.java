@@ -3,6 +3,7 @@ package bank.dto;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -17,4 +18,5 @@ public final class SignUpRequest implements Serializable {
     private String email;
     private String password;
     private String phoneNumber;
+    private Long id = UUID.randomUUID().getMostSignificantBits();
 }

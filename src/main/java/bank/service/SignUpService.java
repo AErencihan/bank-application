@@ -1,6 +1,7 @@
 package bank.service;
 
 import bank.dto.SignUpRequest;
+import bank.model.FileFacade;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONException;
@@ -11,6 +12,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.Function;
 
+import static bank.util.JsonReader.formatWithJson;
+
 public class SignUpService {
 
 
@@ -19,7 +22,7 @@ public class SignUpService {
     }
 
     private File execute(SignUpRequest request) throws IOException, JSONException {
-        File file = new File("ek/Customer.json");
+        File file = FileFacade.CUSTOMER.getFile();
 
         if (!file.exists()) {
             file.createNewFile();
@@ -28,34 +31,13 @@ public class SignUpService {
         checkEmailUsed(request, file);
 
         JSONObject jsonObject = new JSONObject();
+        jsonObject.put("id", request.getId());
         jsonObject.put("name", request.getName());
         jsonObject.put("surname", request.getSurname());
         jsonObject.put("email", request.getEmail());
         jsonObject.put("password", request.getPassword());
 
-        FileWriter fileWriter = new FileWriter(file, true);
-
-        String open = "[";
-        String close = "]";
-
-        Function<String, String> addBrackets = (String s) -> open + s + close;
-
-        FileReader fileReader = new FileReader(file);
-        String currentFileJson = IOUtils.toString(fileReader);
-
-
-        if (currentFileJson.length() == 0) {
-            fileWriter.write(addBrackets.apply(jsonObject.toString()));
-        } else {
-            PrintWriter printWriter = new PrintWriter(file);
-            String newJson = currentFileJson + "," + jsonObject;
-            newJson = newJson.replace("[", "")
-                    .replace("]", "");
-            printWriter.write(addBrackets.apply(newJson));
-            printWriter.close();
-        }
-
-        fileWriter.close();
+        formatWithJson(file, jsonObject);
         return file;
     }
 

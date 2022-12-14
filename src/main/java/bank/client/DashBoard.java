@@ -1,12 +1,16 @@
 package bank.client;
 
-import bank.listener.AccountListener;
+import bank.listener.AccountCreateListener;
+import bank.listener.AccountDeleteListener;
+import bank.listener.AccountListListener;
+import bank.listener.DepositMoneyListener;
+import bank.service.AccountService;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class DashBoard extends JFrame {
-    // bu ekranda hesaplarım, hesap aç, hesap sil, hesap detayları, para yatır, para çek, havale yap, çıkış yap butonları olacak
+    final AccountService accountService = new AccountService();
 
     private final JButton ACCOUNTS = new JButton("Hesaplarım");
     private final JButton CREATE_ACCOUNT = new JButton("Hesap Aç");
@@ -33,23 +37,17 @@ public class DashBoard extends JFrame {
         panel.add(LOGOUT);
         add(panel, BorderLayout.CENTER);
 
-        ACCOUNTS.addActionListener(new AccountListener());
+        ACCOUNTS.addActionListener(new AccountListListener());
 
-        CREATE_ACCOUNT.addActionListener(e -> {
-            // hesap aç sayfasına yönlendir
-        });
+        CREATE_ACCOUNT.addActionListener(new AccountCreateListener(accountService));
 
-        DELETE_ACCOUNT.addActionListener(e -> {
-            // hesap sil sayfasına yönlendir
-        });
+        DELETE_ACCOUNT.addActionListener(new AccountDeleteListener());
 
         ACCOUNT_DETAILS.addActionListener(e -> {
             // hesap detayları sayfasına yönlendir
         });
 
-        DEPOSIT.addActionListener(e -> {
-            // para yatır sayfasına yönlendir
-        });
+        DEPOSIT.addActionListener(new DepositMoneyListener(accountService));
 
     }
 

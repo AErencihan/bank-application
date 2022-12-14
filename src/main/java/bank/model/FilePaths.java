@@ -2,7 +2,7 @@ package bank.model;
 
 public enum FilePaths {
     CUSTOMER("ek/Customer.json"),
-    ACCOUNT("ek/Account.json");
+    ACCOUNT("ek/Accounts.json");
 
     private final String path;
 

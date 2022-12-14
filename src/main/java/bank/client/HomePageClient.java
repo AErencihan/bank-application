@@ -19,6 +19,7 @@ public class HomePageClient extends JFrame {
     public HomePageClient(String title) throws HeadlessException {
         super(title);
 
+
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 2));
         panel.add(SIGN_UP);
