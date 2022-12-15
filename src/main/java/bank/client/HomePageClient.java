@@ -7,6 +7,7 @@ import bank.service.SignUpService;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class HomePageClient extends JFrame {
 
@@ -80,6 +81,7 @@ public class HomePageClient extends JFrame {
                                 .name(name)
                                 .surname(surname)
                                 .password(password)
+                                .id(new Random().nextLong())
                                 .build());
                         new DashBoard("Banka Sayfasına Hoşgeldiniz");
 

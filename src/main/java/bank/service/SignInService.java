@@ -38,6 +38,7 @@ public final class SignInService {
                         .surname((String) map.get("surname"))
                         .email((String) map.get("email"))
                         .password((String) map.get("password"))
+                        .id((Long) map.get("id"))
                         .build())
                 .collect(Collectors.toList());
     }

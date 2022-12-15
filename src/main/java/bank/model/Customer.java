@@ -26,6 +26,7 @@ public final class Customer extends User {
         private String phoneNumber;
 
         private Builder() {
+
         }
 
         public Builder accountId(Long accountId) {

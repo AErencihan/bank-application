@@ -48,6 +48,7 @@ public class AccountCreateListener implements ActionListener {
                     .id((Long) account.get("id"))
                     .currency(Currency.valueOf((String) account.get("currency")))
                     .customerId((Long) account.get("customerId"))
+                    .balance(Double.valueOf((Integer) account.get("balance")))
                     .build()).collect(Collectors.toList());
 
             JFrame jr = new AccountClient(accountList);
