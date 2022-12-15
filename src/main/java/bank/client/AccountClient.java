@@ -34,9 +34,10 @@ public class AccountClient extends JFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         if (!accounts.isEmpty()) {
-            for (Account account : accounts) {
             GridLayout gridLayout = new GridLayout(0, 4);
             panel.setLayout(gridLayout);
+            for (Account account : accounts) {
+
 
             panel.add(new JLabel("Currency: " + account.getCurrency().toString()));
             panel.add(new JLabel("Hesap Bakiyesi: " + account.getBalance().toString()));
@@ -54,8 +55,6 @@ public class AccountClient extends JFrame {
         add(panel, BorderLayout.CENTER);
         setSize(1500, 1500);
         setVisible(true);
-
-        // todo buraya for ile dönüp adamın ismi ve soyismi yazılacak ve bakiyesi
 
     }
 
