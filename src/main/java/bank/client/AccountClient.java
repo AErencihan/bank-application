@@ -30,7 +30,7 @@ public class AccountClient extends JFrame {
                 .surname((String) customer1.get("surname"))
                 .build()).collect(Collectors.toList());
 
-        getName();
+
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         if (!accounts.isEmpty()) {
