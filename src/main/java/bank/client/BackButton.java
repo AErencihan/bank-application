@@ -1,29 +1,30 @@
 package bank.client;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * @author Furkan Özmen
  */
-public class BackButton extends JButton {
+public class BackButton extends JButton implements ActionListener {
 
     JMenuBar menuBar = new JMenuBar();
-    JMenu menu = new JMenu();
 
 
-    public JMenuBar initializeMenubar(){
+    public void initializeMenubar() {
 
-        JMenuItem item = new JMenuItem();
-        item.add(new BackButton());
-        menu.add(item);
+        JMenu menu = new JMenu("MENU");
+
         menuBar.add(menu);
-        menuBar.setSize(200,200);
-        menu.setSize(400,400);
-        menuBar.setLayout(null);
-        menuBar.setVisible(true);
-        return menuBar;
-    }
 
+        JMenuItem homePage = new JMenuItem("ANA SAYFA");
+
+        menu.add(homePage);
+
+
+        homePage.addActionListener(e -> new BackButton().actionPerformed(e));
+    }
 
     public BackButton() {
         super("ANASAYFAYA DÖN");
@@ -31,14 +32,11 @@ public class BackButton extends JButton {
         setBorder(BorderFactory.createEmptyBorder());
     }
 
-    public static void backButtonListener(BackButton backButton) {
-        backButton.addActionListener(e -> {
-            JFrame frame = new DashBoard("");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(1500, 1500);
-            frame.setVisible(true);
-        });
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JFrame frame = new DashBoard("");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1500, 1500);
+        frame.setVisible(true);
     }
-
-
 }

@@ -11,7 +11,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static bank.client.BackButton.backButtonListener;
 
 /**
  * @author ALi Eren Cihan
@@ -20,6 +19,11 @@ public class AccountClient extends JFrame {
 
     public AccountClient(List<Account> accounts) {
         super("Hesaplarım");
+        final BackButton backButton = new BackButton();
+        final JMenuBar jMenuBar = backButton.menuBar;
+        setJMenuBar(jMenuBar);
+        backButton.initializeMenubar();
+
 
         final List<LinkedHashMap> customer = JsonReader.read(FilePaths.CUSTOMER.getPath(), List.class);
         final List<Customer> customerList = customer.stream().map(customer1 -> Customer.builder()
@@ -29,22 +33,26 @@ public class AccountClient extends JFrame {
                 .build()).collect(Collectors.toList());
 
 
-        final BackButton backButton = new BackButton();
         JPanel panel = new JPanel();
-        backButtonListener(backButton);
-        setJMenuBar(backButton.initializeMenubar());
+
         panel.setLayout(new BorderLayout());
         if (!accounts.isEmpty()) {
-            GridLayout gridLayout = new GridLayout(0, 3);
+            GridLayout gridLayout = new GridLayout(0, 4);
             panel.setLayout(gridLayout);
             for (Account account : accounts) {
 
 
-                panel.add(new JLabel("Currency: " + account.getCurrency().toString()));
-                panel.add(new JLabel("Hesap Bakiyesi: " + account.getBalance().toString()));
-                panel.add(new JLabel("Hesap numarası: " + account.getId()));
-                panel.add(new JLabel("Hesap sahibi: " + customerList.stream().filter(customer1 -> customer1.getId()
-                        .equals(account.getCustomerId())).findFirst().orElseThrow().getName()));
+                final JLabel currency = new JLabel("Currency: " + account.getCurrency().toString());
+                final JLabel balance = new JLabel("Hesap Bakiyesi: " + account.getBalance().toString());
+                final JLabel accountNumber = new JLabel("Hesap Numarası: " + account.getId().toString());
+                final JLabel customerName = new JLabel("Hesap sahibi: " + customerList.stream().filter(customer1 -> customer1.getId()
+                        .equals(account.getCustomerId())).findFirst().orElseThrow().getName());
+
+                designLabel(currency, balance, accountNumber, customerName);
+                panel.add(currency);
+                panel.add(balance);
+                panel.add(accountNumber);
+                panel.add(customerName);
             }
 
 
@@ -55,6 +63,13 @@ public class AccountClient extends JFrame {
         setSize(1500, 1500);
         setVisible(true);
 
+    }
+
+    private void designLabel(JLabel... labels ) {
+        for (JLabel label : labels) {
+            label.setFont(new Font("Serif", Font.PLAIN, 20));
+            label.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        }
     }
 
 }

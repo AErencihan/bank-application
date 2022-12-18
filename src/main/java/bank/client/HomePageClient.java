@@ -17,9 +17,6 @@ public class HomePageClient extends JFrame {
     private final JButton SIGN_UP = new JButton("Kayıt Ol");
     private final JButton SIGN_IN = new JButton("Giriş Yap");
 
-    private final SignUpService signUpService = new SignUpService();
-    private final SignInService signInService = new SignInService();
-
     public HomePageClient(String title) throws HeadlessException {
         super(title);
 
@@ -87,7 +84,6 @@ public class HomePageClient extends JFrame {
                         JOptionPane.showMessageDialog(null, "HATA OLUŞTU");
                     }
                     JOptionPane.showMessageDialog(null, "Kayıt başarılı");
-                    // dashboard sayfasına yönlendir
                     JFrame frame = new DashBoard("Banka Sayfasına Hoşgeldiniz");
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.setSize(1500, 1500);
