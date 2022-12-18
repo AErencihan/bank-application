@@ -9,6 +9,7 @@ import bank.util.JsonReader;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -59,6 +60,11 @@ public class AccountService {
         try {
             final Account targetAccount = findByIban(target, accounts);
             final Account currentAccount = findByIban(current, accounts);
+
+            if (currentAccount.getBalance() < amount) {
+                JOptionPane.showInputDialog("Yetersiz bakiye");
+                return;
+            }
 
             targetAccount.setBalance(targetAccount.getBalance() + amount);
             currentAccount.setBalance(currentAccount.getBalance() - amount);
