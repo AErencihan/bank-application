@@ -87,7 +87,10 @@ public class CreditService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }, 1, 1, TimeUnit.of(ChronoUnit.MONTHS));
+        }, 30, 30, TimeUnit.DAYS);
+
+        // 30 günde bir çalışacak scheduledExecutorService
+
     }
 
     public void saveCredit(Credit credit) throws Exception {
