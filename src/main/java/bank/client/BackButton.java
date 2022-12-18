@@ -7,6 +7,24 @@ import javax.swing.*;
  */
 public class BackButton extends JButton {
 
+    JMenuBar menuBar = new JMenuBar();
+    JMenu menu = new JMenu();
+
+
+    public JMenuBar initializeMenubar(){
+
+        JMenuItem item = new JMenuItem();
+        item.add(new BackButton());
+        menu.add(item);
+        menuBar.add(menu);
+        menuBar.setSize(200,200);
+        menu.setSize(400,400);
+        menuBar.setLayout(null);
+        menuBar.setVisible(true);
+        return menuBar;
+    }
+
+
     public BackButton() {
         super("ANASAYFAYA DÖN");
         setSize(100, 100);

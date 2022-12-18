@@ -31,11 +31,11 @@ public class AccountClient extends JFrame {
 
         final BackButton backButton = new BackButton();
         JPanel panel = new JPanel();
-        panel.add(backButton);
         backButtonListener(backButton);
+        setJMenuBar(backButton.initializeMenubar());
         panel.setLayout(new BorderLayout());
         if (!accounts.isEmpty()) {
-            GridLayout gridLayout = new GridLayout(3, 5);
+            GridLayout gridLayout = new GridLayout(0, 3);
             panel.setLayout(gridLayout);
             for (Account account : accounts) {
 
