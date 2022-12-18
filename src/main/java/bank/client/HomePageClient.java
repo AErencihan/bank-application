@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+/**
+ * @author Ali Eren Cihan
+ */
 public class HomePageClient extends JFrame {
 
     private final JButton SIGN_UP = new JButton("Kayıt Ol");
@@ -20,7 +23,6 @@ public class HomePageClient extends JFrame {
     public HomePageClient(String title) throws HeadlessException {
         super(title);
 
-
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 2));
         panel.add(SIGN_UP);
@@ -28,12 +30,8 @@ public class HomePageClient extends JFrame {
         add(panel, BorderLayout.CENTER);
 
         SIGN_UP.addActionListener(SignUpListener.of().listen());
-
         SIGN_IN.addActionListener(SignInListener.of().listen());
-
-
     }
-
 
     private static class SignInListener {
 

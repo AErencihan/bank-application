@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+/**
+ * @author Ali Eren Cihan
+ */
 public class AccountDeleteListener implements ActionListener {
     @Override
     @SuppressWarnings("unchecked")

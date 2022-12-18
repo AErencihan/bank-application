@@ -11,6 +11,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author Ali Eren Cihan
+ */
 public final class SignInService {
 
     public void signIn(String email, String password) {

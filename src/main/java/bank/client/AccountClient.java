@@ -1,27 +1,25 @@
 package bank.client;
 
-import bank.listener.AccountCreateListener;
 import bank.model.Account;
 import bank.model.Customer;
 import bank.model.FilePaths;
-import bank.model.User;
 import bank.util.JsonReader;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
+import static bank.client.BackButton.backButtonListener;
+
+/**
+ * @author ALi Eren Cihan
+ */
 public class AccountClient extends JFrame {
-
-    private final List<Account> accounts;
-
 
     public AccountClient(List<Account> accounts) {
         super("Hesaplarım");
-        this.accounts = accounts;
 
         final List<LinkedHashMap> customer = JsonReader.read(FilePaths.CUSTOMER.getPath(), List.class);
         final List<Customer> customerList = customer.stream().map(customer1 -> Customer.builder()
@@ -31,21 +29,22 @@ public class AccountClient extends JFrame {
                 .build()).collect(Collectors.toList());
 
 
+        final BackButton backButton = new BackButton();
         JPanel panel = new JPanel();
+        panel.add(backButton);
+        backButtonListener(backButton);
         panel.setLayout(new BorderLayout());
         if (!accounts.isEmpty()) {
-            GridLayout gridLayout = new GridLayout(0, 4);
+            GridLayout gridLayout = new GridLayout(3, 5);
             panel.setLayout(gridLayout);
             for (Account account : accounts) {
 
 
-            panel.add(new JLabel("Currency: " + account.getCurrency().toString()));
-            panel.add(new JLabel("Hesap Bakiyesi: " + account.getBalance().toString()));
-            panel.add(new JLabel("Hesap numarası: " + account.getId()));
-            panel.add(new JLabel("Hesap sahibi: "+ customerList.stream().filter(customer1 -> customer1.getId()
-                    .equals(account.getCustomerId())).findFirst().orElseThrow().getName()));
-
-
+                panel.add(new JLabel("Currency: " + account.getCurrency().toString()));
+                panel.add(new JLabel("Hesap Bakiyesi: " + account.getBalance().toString()));
+                panel.add(new JLabel("Hesap numarası: " + account.getId()));
+                panel.add(new JLabel("Hesap sahibi: " + customerList.stream().filter(customer1 -> customer1.getId()
+                        .equals(account.getCustomerId())).findFirst().orElseThrow().getName()));
             }
 
 
@@ -57,6 +56,5 @@ public class AccountClient extends JFrame {
         setVisible(true);
 
     }
-
 
 }

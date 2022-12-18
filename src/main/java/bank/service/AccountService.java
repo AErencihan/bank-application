@@ -14,8 +14,12 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import static bank.listener.WithdrawMoneyListener.buildAccount;
 import static bank.util.JsonReader.formatWithJson;
 
+/**
+ * @author furkan özmen
+ */
 public class AccountService {
     public void createAccount(CreateAccountRequest request) throws IOException, JSONException {
         File file = FileFacade.ACCOUNT.getFile();
@@ -48,5 +52,28 @@ public class AccountService {
         accounts.remove(linkedHashMap);
         return db;
 
+    }
+
+    public void transferMoney(Long target, Long current, double amount) {
+        final List<LinkedHashMap> accounts = JsonReader.read(FilePaths.ACCOUNT.getPath(), List.class);
+        try {
+            final Account targetAccount = findByIban(target, accounts);
+            final Account currentAccount = findByIban(current, accounts);
+
+            targetAccount.setBalance(targetAccount.getBalance() + amount);
+            currentAccount.setBalance(currentAccount.getBalance() - amount);
+
+            FileFacade.deleteFile(FilePaths.ACCOUNT.getPath());
+
+            LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+            map.put("id", targetAccount.getId());
+            map.put("balance", targetAccount.getBalance());
+            map.put("currency", targetAccount.getCurrency());
+            map.put("customerId", targetAccount.getCustomerId());
+            accounts.add(map);
+            buildAccount(accounts, currentAccount);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

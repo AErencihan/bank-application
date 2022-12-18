@@ -4,6 +4,9 @@ import bank.client.HomePageClient;
 
 import javax.swing.*;
 
+/**
+ * @author Eray Tekin
+ */
 public final class Client {
 
     public static void main(String[] args) {

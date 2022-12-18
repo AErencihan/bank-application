@@ -12,8 +12,9 @@ import java.awt.event.ActionListener;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import static bank.listener.AccountDeleteListener.reWriteData;
-
+/**
+ * @author Furkan Özmen
+ */
 public class DepositMoneyListener implements ActionListener {
     private final AccountService accountService;
 
@@ -33,13 +34,8 @@ public class DepositMoneyListener implements ActionListener {
             FileFacade.deleteFile(FilePaths.ACCOUNT.getPath());
 
             account.setBalance(account.getBalance() + Double.parseDouble(AMOUNT));
-            LinkedHashMap<String, Object> map = new LinkedHashMap<>();
-            map.put("id", account.getId());
-            map.put("balance", account.getBalance());
-            map.put("currency", account.getCurrency());
-            map.put("customerId", account.getCustomerId());
-            accounts.add(map);
-            reWriteData(accounts);
+            WithdrawMoneyListener.buildAccount(accounts, account);
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Hesap bulunamadı");
             throw new RuntimeException(ex);

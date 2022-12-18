@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
+/**
+ * @author Eray Tekib
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

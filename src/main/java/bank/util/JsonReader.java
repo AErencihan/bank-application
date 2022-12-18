@@ -6,10 +6,11 @@ import org.json.JSONObject;
 
 import javax.swing.*;
 import java.io.*;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.function.Function;
 
+/**
+ * @author Furkan Özmen
+ */
 public class JsonReader {
     public static <T> T read(String path, Class<T> type) {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -17,7 +18,7 @@ public class JsonReader {
             return objectMapper.readValue(new File(path), type);
         } catch (IOException e) {
             JPanel panel = new JPanel();
-            JOptionPane.showMessageDialog(panel, "Dosya okunamadı", "Hata", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "VERİ BULUNAMADI", "Hata", JOptionPane.ERROR_MESSAGE);
             throw new IllegalArgumentException("error");
         }
     }

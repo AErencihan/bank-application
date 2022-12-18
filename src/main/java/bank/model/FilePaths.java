@@ -1,8 +1,12 @@
 package bank.model;
 
+/**
+ * @author Furkan Özmen
+ */
 public enum FilePaths {
     CUSTOMER("ek/Customer.json"),
-    ACCOUNT("ek/Accounts.json");
+    ACCOUNT("ek/Accounts.json"),
+    CREDIT("ek/Credit.json");
 
     private final String path;
 

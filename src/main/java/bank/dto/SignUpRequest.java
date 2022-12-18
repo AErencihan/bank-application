@@ -4,7 +4,10 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.util.Random;
-import java.util.UUID;
+
+/**
+ * @author Furkan Özmen
+ */
 
 @Setter
 @Getter

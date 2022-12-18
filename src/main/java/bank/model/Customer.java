@@ -1,5 +1,8 @@
 package bank.model;
 
+/**
+ * @author Ali Eren Cihan
+ */
 public final class Customer extends User {
     private Long accountId;
 

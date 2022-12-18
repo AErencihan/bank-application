@@ -13,6 +13,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author Furkan Özmen
+ */
 public class AccountListListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -32,6 +35,7 @@ public class AccountListListener implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1500, 1500);
         frame.setVisible(true);
+
     }
 
 

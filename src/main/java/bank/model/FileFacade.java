@@ -3,9 +3,13 @@ package bank.model;
 import java.io.File;
 import java.io.PrintWriter;
 
+/**
+ * @author Furkan Özmen
+ */
 public enum FileFacade {
     CUSTOMER(new File(FilePaths.CUSTOMER.getPath())),
-    ACCOUNT(new File(FilePaths.ACCOUNT.getPath()));
+    ACCOUNT(new File(FilePaths.ACCOUNT.getPath())),
+    CREDIT(new File(FilePaths.CREDIT.getPath()));
 
     private final File file;
 

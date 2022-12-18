@@ -1,5 +1,8 @@
 package bank.model;
 
+/**
+ * @author Ali Eren Cihan
+ */
 public abstract class User {
     private Long id;
     private String name;

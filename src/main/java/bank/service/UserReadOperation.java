@@ -6,6 +6,9 @@ import bank.model.FileFacade;
 
 import static bank.service.SignInService.getAllUsers;
 
+/**
+ * @author Eray Tekin
+ */
 public class UserReadOperation {
     public static SignUpRequest findByUser(String email) {
        return getAllUsers(FileFacade.CUSTOMER.getFile())

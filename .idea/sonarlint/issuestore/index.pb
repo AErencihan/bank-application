@@ -8,9 +8,7 @@ L
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
-V
-&src/main/java/bank/model/Customer.java,b/a/bab6d2812a9e07a9b77916c46c2db9e8d319baf3
-V
-&src/main/java/bank/model/Operator.java,1/9/199eb65f751b40efcb159c562893ec0e80e73220
-R
-"src/main/java/bank/model/User.java,f/a/fa61811eba25c51a2d13bad8d6d20a812c1867c9
+w
+G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482
+w
+G.idea/sonarlint/issuestore/f/a/fa61811eba25c51a2d13bad8d6d20a812c1867c9,4/d/4d23ec0150a97571960f82a8e7e426ec723f3d4e

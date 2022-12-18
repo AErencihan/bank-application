@@ -3,17 +3,18 @@ package bank.service;
 import bank.dto.SignUpRequest;
 import bank.model.FileFacade;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.io.IOUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.function.Function;
 
 import static bank.util.JsonReader.formatWithJson;
 
+/**
+ * @author furkan özmen
+ */
 public class SignUpService {
 
 

@@ -19,6 +19,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * @author Ali Eren Cihan
+ */
 public class AccountCreateListener implements ActionListener {
     private final AccountService accountService;
 
