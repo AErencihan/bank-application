@@ -26,6 +26,16 @@ public class HomePageClient extends JFrame {
         panel.add(SIGN_IN);
         add(panel, BorderLayout.CENTER);
 
+        panel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 50));
+
+        // border color pink
+        panel.setBorder(BorderFactory.createLineBorder(Color.PINK, 50));
+        // border color red
+        panel.setBorder(BorderFactory.createLineBorder(Color.RED, 50));
+        // border color green
+        panel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 50));
+        
+
         SIGN_UP.addActionListener(SignUpListener.of().listen());
         SIGN_IN.addActionListener(SignInListener.of().listen());
     }
