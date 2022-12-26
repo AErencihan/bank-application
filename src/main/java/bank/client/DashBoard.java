@@ -1,6 +1,7 @@
 package bank.client;
 
 import bank.listener.*;
+import bank.model.Account;
 import bank.service.AccountService;
 import bank.service.CreditService;
 
@@ -28,16 +29,47 @@ public class DashBoard extends JFrame {
         super(title);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(1, 8));
+        panel.setLayout(new GridLayout(3, 8));
+
+        //panel.setLayout(new GridLayout(3, 8, 10, 10));
+        panel.setBorder(BorderFactory.createLineBorder(new Color(144, 238, 144), 10));
+
         panel.add(ACCOUNTS);
+        ACCOUNTS.setForeground(new Color(0, 139, 139));
+        ACCOUNTS.setFont(new Font("Arial", Font.BOLD, 20));
+
         panel.add(CREATE_ACCOUNT);
+        CREATE_ACCOUNT.setForeground(new Color(0, 139, 139));
+        CREATE_ACCOUNT.setFont(new Font("Arial", Font.BOLD, 20));
+
         panel.add(DELETE_ACCOUNT);
+        DELETE_ACCOUNT.setForeground(new Color(0, 139, 139));
+        DELETE_ACCOUNT.setFont(new Font("Arial", Font.BOLD, 20));
+
         panel.add(ACCOUNT_DETAILS);
+        ACCOUNT_DETAILS.setForeground(new Color(0, 139, 139));
+        ACCOUNT_DETAILS.setFont(new Font("Arial", Font.BOLD, 20));
+
         panel.add(DEPOSIT);
+        DEPOSIT.setForeground(new Color(0, 139, 139));
+        DEPOSIT.setFont(new Font("Arial", Font.BOLD, 20));
+
         panel.add(WITHDRAW);
+        WITHDRAW.setForeground(new Color(0, 139, 139));
+        WITHDRAW.setFont(new Font("Arial", Font.BOLD, 20));
+
         panel.add(TRANSFER);
+        TRANSFER.setForeground(new Color(0, 139, 139));
+        TRANSFER.setFont(new Font("Arial", Font.BOLD, 20));
+
         panel.add(LOGOUT);
+        LOGOUT.setForeground(new Color(139, 0, 25));
+        LOGOUT.setFont(new Font("Arial", Font.BOLD, 30));
+
         panel.add(CREDIT);
+        CREDIT.setForeground(new Color(0, 139, 139));
+        CREDIT.setFont(new Font("Arial", Font.BOLD, 20));
+
         add(panel, BorderLayout.CENTER);
 
         ACCOUNTS.addActionListener(new AccountListListener());

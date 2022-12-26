@@ -34,10 +34,12 @@ public class AccountClient extends JFrame {
 
 
         JPanel panel = new JPanel();
-
         panel.setLayout(new BorderLayout());
+        panel.setBorder(BorderFactory.createLineBorder(new Color(144, 238, 144), 10));
+
         if (!accounts.isEmpty()) {
-            GridLayout gridLayout = new GridLayout(0, 4);
+            GridLayout gridLayout = new GridLayout(0, 4, 10, 10);
+
             panel.setLayout(gridLayout);
             for (Account account : accounts) {
 
@@ -50,9 +52,21 @@ public class AccountClient extends JFrame {
 
                 designLabel(currency, balance, accountNumber, customerName);
                 panel.add(currency);
+                currency.setFont(new Font("Arial", Font.BOLD, 20));
+                currency.setForeground(new Color(0, 139, 139));
+
                 panel.add(balance);
+                balance.setFont(new Font("Arial", Font.BOLD, 20));
+                balance.setForeground(new Color(0, 139, 139));
+
                 panel.add(accountNumber);
+                accountNumber.setFont(new Font("Arial", Font.BOLD, 20));
+                accountNumber.setForeground(new Color(0, 139, 139));
+
                 panel.add(customerName);
+                customerName.setFont(new Font("Arial", Font.BOLD, 20));
+                customerName.setForeground(new Color(0, 139, 139));
+
             }
 
 

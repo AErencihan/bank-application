@@ -13,8 +13,7 @@ public final class Client {
     public static void main(String[] args) {
         JFrame frame = new HomePageClient("Banka Sayfasına Hoşgeldiniz");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // add yellow background
-        frame.getContentPane().setFont(new Font("Arial", Font.BOLD, 20));
+        frame.getContentPane().setFont(new Font("Arial", Font.ITALIC, 20));
         frame.setSize(1500, 1500);
         frame.setVisible(true);
     }
