@@ -14,16 +14,26 @@ import java.util.Random;
  */
 public class HomePageClient extends JFrame {
 
-    private final JButton SIGN_UP = new JButton("Kayıt Ol");
-    private final JButton SIGN_IN = new JButton("Giriş Yap");
+    private final JButton SIGN_UP = new JButton("KAYIT OL");
+    private final JButton SIGN_IN = new JButton("GİRİŞ YAP");
 
     public HomePageClient(String title) throws HeadlessException {
         super(title);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(1, 2));
+        panel.setLayout(new GridLayout(2, 1 , 15, 0 ));
         panel.add(SIGN_UP);
+        SIGN_UP.setBorder(BorderFactory.createLineBorder(new Color(0, 100, 0), 7));
+        SIGN_UP.setFont(new Font("Arial", Font.BOLD, 25));
+        SIGN_UP.setForeground(new Color(0, 139, 139));
+
+
         panel.add(SIGN_IN);
+        SIGN_IN.setBorder(BorderFactory.createLineBorder(new Color(0, 100, 0), 7));
+        SIGN_IN.setFont(new Font("Arial", Font.BOLD, 25));
+        SIGN_IN.setForeground(new Color(0, 139, 139));
+
+
         add(panel, BorderLayout.CENTER);
 
         panel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 50));
@@ -33,7 +43,7 @@ public class HomePageClient extends JFrame {
         // border color red
         panel.setBorder(BorderFactory.createLineBorder(Color.RED, 50));
         // border color green
-        panel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 50));
+        panel.setBorder(BorderFactory.createLineBorder(new Color(144, 238, 144), 50));
         
 
         SIGN_UP.addActionListener(SignUpListener.of().listen());

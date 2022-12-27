@@ -1,1 +1,20 @@
-[{"balance":0,"customerId":-3875460720145529457,"currency":"TRY","id":5042336015741830424},{"balance":0,"customerId":-3875460720145529457,"currency":"TRY","id":8930239722736602886}]
+[
+  {
+    "balance": 0,
+    "customerId": -3875460720145529457,
+    "currency": "TRY",
+    "id": 8930239722736602886
+  },
+  {
+    "balance": 1500,
+    "customerId": -3875460720145529457,
+    "currency": "TRY",
+    "id": 4058826085950704307
+  },
+  {
+    "balance": 10000,
+    "customerId": -3875460720145529457,
+    "currency": "TRY",
+    "id": -2973052297536779037
+  }
+]
