@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Ali Eren Cihan
@@ -12,6 +13,19 @@ public final class FileSearchQuery {
 
     private FileSearchQuery() {
         throw new IllegalStateException("Utility class");
+    }
+
+    public static List<String> searchMultipleLines(String fileName, String... query) throws IOException {
+        return Files.lines(Paths.get(fileName))
+                .filter(line -> {
+                    for (String s : query) {
+                        if (!line.contains(s)) {
+                            return false;
+                        }
+                    }
+                    return true;
+                })
+                .collect(Collectors.toList());
     }
 
     public static String search(String fileName, String name) {
