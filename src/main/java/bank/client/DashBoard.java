@@ -79,7 +79,7 @@ public class DashBoard extends JFrame {
         DEPOSIT.addActionListener(new DepositMoneyListener(accountService));
         TRANSFER.addActionListener(new TransferMoneyListener(accountService));
         LOGOUT.addActionListener(new LogoutListener());
-
+        WITHDRAW.addActionListener(new WithdrawMoneyListener(accountService));
     }
 
     public void redirect() {
