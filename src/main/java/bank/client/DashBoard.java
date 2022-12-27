@@ -46,6 +46,7 @@ public class DashBoard extends JFrame {
         CREDIT.addActionListener(new CreditListener(creditService));
         DEPOSIT.addActionListener(new DepositMoneyListener(accountService));
         TRANSFER.addActionListener(new TransferMoneyListener(accountService));
+        LOGOUT.addActionListener(new LogoutListener());
 
     }
 

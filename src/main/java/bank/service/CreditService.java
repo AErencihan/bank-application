@@ -11,7 +11,6 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
-import java.time.temporal.ChronoUnit;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -59,6 +58,10 @@ public class CreditService {
                         .build()
         );
 
+        startCreditSchedule(iban, monthlyPayment);
+    }
+
+    private void startCreditSchedule(Long iban, double monthlyPayment) {
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             try {
                 final List<LinkedHashMap> accounts1 = JsonReader.read(FilePaths.ACCOUNT.getPath(), List.class);
